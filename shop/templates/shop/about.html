@@ -1,25 +1,117 @@
 {% extends 'base.html' %}
-{% block title %}О компании - Магазин{% endblock %}
-{% block content %}
-<div class="container my-5">
-    <h1 class="mb-4 text-center">О нашей компании</h1>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой музыкальный плейлист</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #00dbde, #fc00ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .playlist-container {
+            width: 100%;
+            max-width: 1000px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .playlist-container:hover {
+            transform: translateY(-5px);
+        }
+        
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        .social-links a:hover {
+            opacity: 0.7;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .playlist-container {
+                border-radius: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Мой музыкальный мир</h1>
+        <p>Здесь собраны треки, которые вдохновляют меня каждый день. Наслаждайтесь!</p>
+    </div>
     
-    <div class="row align-items-center">
-        <!-- Левая часть — изображение -->
-        <div class="col-md-6 mb-4 mb-md-0">
-            <img src="{% static 'img/about_us.jpg' %}" alt="О компании" class="img-fluid rounded shadow">
-        </div>
-
-        <!-- Правая часть — текст -->
-        <div class="col-md-6">
-            <div class="card shadow-sm border-0">
-                <div class="card-body">
-                    <p class="card-text fs-5">Мы – <strong>ведущий ритейлер спортивной атрибутики</strong>, работающий с 2000 года. Наша миссия – предоставлять фанатам качественные товары их любимых команд.</p>
-                    <p class="card-text fs-5">Мы сотрудничаем с мировыми брендами, такими как <strong>Nike</strong>, <strong>Adidas</strong> и <strong>Puma</strong>, и предлагаем эксклюзивные коллекции, которых нет в других магазинах.</p>
-                    <a href="{% url 'shop:contacts' %}" class="btn btn-outline-primary mt-3">Связаться с нами</a>
-                </div>
-            </div>
+    <div class="playlist-container">
+        <iframe frameborder="0" allow="clipboard-write" style="border:none;width:100%;height:1000px;" src="https://music.yandex.ru/iframe/playlist/Grenghem/3">
+            Слушайте <a href="https://music.yandex.ru/playlists/lk.723be6d6-db33-4c01-a26e-8dda77fa3255">Мне нравится</a> — <a href="https://music.yandex.ru/users/Grenghem">Никита</a> на Яндекс Музыке
+        </iframe>
+    </div>
+    
+    <div class="footer">
+        <p>© 2023 Мой музыкальный плейлист. Все права на музыку принадлежат правообладателям.</p>
+        <div class="social-links">
+            <a href="#">Instagram</a>
+            <a href="#">VK</a>
+            <a href="#">Telegram</a>
         </div>
     </div>
-</div>
+</body>
+</html>
 {% endblock %}
